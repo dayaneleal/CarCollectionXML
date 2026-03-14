@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp"
+    android:paddingTop="16dp"
+    android:paddingHorizontal="16dp"
     android:background="?attr/selectableItemBackground">
 
     <ImageView
@@ -45,5 +46,13 @@
         app:layout_constraintTop_toBottomOf="@id/year"
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="GHI-9012"/>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/license"
+        android:layout_marginTop="16dp"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

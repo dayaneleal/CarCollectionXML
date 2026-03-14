@@ -74,7 +74,7 @@ class LoginActivity : AppCompatActivity() {
 
                 override fun onCodeSent(verificationId: String, token: PhoneAuthProvider.ForceResendingToken) {
                     this@LoginActivity.verificationId = verificationId
-                    binding.veryfyCode.visibility = View.VISIBLE
+                    binding.veryfyCodeLayout.visibility = View.VISIBLE
                     binding.btnVerifySms.visibility = View.VISIBLE
                     Toast.makeText(
                         this@LoginActivity,

@@ -18,4 +18,17 @@
     <string name="hint_verify_sms">123456</string>
     <string name="verify_sms">Verificar SMS</string>
     <string name="menu_loggout">Sair</string>
+    <string name="add_car">Adicionar Carro</string>
+    <string name="delete_btn">Deletar</string>
+    <string name="save_btn">Salvar</string>
+    <string name="hint_add_license">Editar placa</string>
+    <string name="take_picture">Tirar Foto</string>
+    <string name="hint_license">Placa</string>
+    <string name="hint_url_image">URL da imagem</string>
+    <string name="select_location">Selecione o local no mapa:</string>
+    <string name="hint_year">Ano</string>
+    <string name="hint_car_name">Nome do carro</string>
+    <string name="login_title">Login</string>
+    <string name="cellphone_hint">Celular</string>
+    <string name="verification_code">Código de Verificação</string>
 </resources>

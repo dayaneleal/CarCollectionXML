@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.carcollection.adapter.ItemAdapter
 import com.example.carcollection.database.DatabaseBuilder
@@ -55,6 +56,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         setSupportActionBar(binding.toolbar)
+        binding.toolbar.overflowIcon?.setTint(getColor(android.R.color.white))
         setupView()
         requestLocationPermission()
     }
@@ -90,7 +92,9 @@ class MainActivity : AppCompatActivity() {
         binding.swipeRefreshLayout.setOnRefreshListener {
             fetchItems()
         }
+        
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
+
         binding.addCta.setOnClickListener {
             navigateToNewItem()
         }
