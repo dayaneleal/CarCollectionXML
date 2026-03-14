@@ -31,4 +31,5 @@
     <string name="login_title">Login</string>
     <string name="cellphone_hint">Celular</string>
     <string name="verification_code">Código de Verificação</string>
+    <string name="select_car_location">Selecione a localização do carro no mapa</string>
 </resources>

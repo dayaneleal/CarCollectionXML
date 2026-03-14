@@ -178,7 +178,6 @@ class NewItemActivity : AppCompatActivity(), OnMapReadyCallback {
     @SuppressLint("MissingPermission")
     private fun requestLocationPermission() {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
-        // Se o usuário permitiu a localização, obtenha a última localização, caso contrário, seguimos sem localização exata.
         fusedLocationClient.lastLocation.addOnSuccessListener { location ->
             location?.let {
                 val latLong = LatLng(it.latitude, it.longitude)
@@ -194,7 +193,6 @@ class NewItemActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     private fun getDeviceLocation() {
-        // verificar a permissão de localização
         if (ContextCompat.checkSelfPermission(
                 this,
                 android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
@@ -213,7 +211,6 @@ class NewItemActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.isMyLocationEnabled = true
         mMap.uiSettings.isMyLocationButtonEnabled = true
         mMap.uiSettings.isCompassEnabled = true
-        fusedLocationClient
     }
 
     private fun saveItem() {
@@ -253,13 +250,9 @@ class NewItemActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private fun uploadImageToFirebase() {
         imageFile?.let {
-            // Inicializar o Firebase Storage
             val storageRef = FirebaseStorage.getInstance().reference
-    
-            // Criar uma referência para o arquivo de imagem
             val imageRef = storageRef.child("images/${UUID.randomUUID()}.jpg")
     
-            // converter o Bitmap para ByteArrayOutputStream
             val baos = ByteArrayOutputStream()
             val imageBitmap = BitmapFactory.decodeFile(it.path)
             imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
@@ -280,7 +273,6 @@ class NewItemActivity : AppCompatActivity(), OnMapReadyCallback {
                     }
                 }
         }
-
     }
 
     fun onLoadImage(isLoading: Boolean) {
@@ -324,8 +316,8 @@ class NewItemActivity : AppCompatActivity(), OnMapReadyCallback {
             binding.imageUrl.error = getString(R.string.required_field)
             hasError = true
         }
-        if (binding.license.text.isNullOrBlank()) {
-            binding.license.error = getString(R.string.required_field)
+        if (selectedMarker == null) {
+            Toast.makeText(this, R.string.select_car_location, Toast.LENGTH_LONG).show()
             hasError = true
         }
         return !hasError
